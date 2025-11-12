@@ -16,9 +16,13 @@
     "__mocks__",
     "__tests__",
     "src",
+    "packages/*/src/**/*",
+    "packages/**/e2e-tests/**/*",
+    "plugins/*/src/**/*",
+    "plugins/*/dev/**/*",
     "eslint.config.mjs",
     "jest.config.cjs",
     "rollup.config.js"
   ],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules", "**/dist", "**/node_modules"]
 }

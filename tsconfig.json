@@ -1,36 +1,34 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@backstage/cli/config/tsconfig.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "declaration": false,
+    "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "lib": ["ES2022"],
-    "module": "ES2022",
+    "jsx": "react-jsx",
     "moduleResolution": "Node",
     "noEmit": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./dist",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": false,
+    "outDir": "dist-types",
+    "rootDir": ".",
     "strict": true,
-    "target": "ES2022",
     "useUnknownInCatchVariables": true
   },
-  "include": ["src/**/*"],
   "exclude": [
-    "src/**/*.test.ts",
-    "src/**/*.spec.ts",
-    "src/**/__tests__/**/*",
-    "__mocks__/**/*"
+    "node_modules",
+    "**/*.spec.ts",
+    "**/__tests__/**/*",
+    "**/__mocks__/**/*"
+  ],
+  "include": [
+    "packages/*/src",
+    "packages/*/config.d.ts",
+    "plugins/*/src",
+    "plugins/*/config.d.ts",
+    "plugins/*/dev",
+    "plugins/*/migrations"
   ]
 }

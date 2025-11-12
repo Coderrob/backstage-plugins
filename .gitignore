@@ -114,3 +114,8 @@ __tests__/runner/*
 # VSCode specific files except code-snippets
 .vscode/*
 !.vscode/*.code-snippets
+
+# App configuration
+app-config.local.yaml
+app-config.local.*.yaml
+

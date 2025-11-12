@@ -10,7 +10,7 @@ module.exports = {
     '__mocks__',
     '/node_modules/',
     '/dist/',
-    '/tests/'
+    '/tests/',
   ],
   coverageReporters: ['json-summary', 'text', 'lcov'],
   coverageThreshold: {
@@ -18,14 +18,14 @@ module.exports = {
       branches: 0,
       functions: 40,
       lines: 60,
-      statements: 60
-    }
+      statements: 60,
+    },
   },
   extensionsToTreatAsEsm: ['.ts'],
   moduleFileExtensions: ['ts', 'js'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
-    '^(\\.{1,2}/.*)\\.js$': '$1'
+    '^(\\.{1,2}/.*)\\.js$': '$1',
   },
   preset: 'ts-jest',
   reporters: ['default'],
@@ -36,12 +36,12 @@ module.exports = {
   transform: {
     '^.+\\.ts$': [
       'ts-jest',
-      { tsconfig: 'tsconfig.test.json', useESM: false, injectGlobals: true }
-    ]
+      { tsconfig: 'tsconfig.test.json', useESM: false, injectGlobals: true },
+    ],
   },
   transformIgnorePatterns: [
     'node_modules/(?!@jest/)',
-    '.*\\.(spec|test)\\.(js|jsx)$'
+    '.*\\.(spec|test)\\.(js|jsx)$',
   ],
-  verbose: true
+  verbose: true,
 };

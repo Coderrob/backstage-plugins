@@ -26,7 +26,7 @@ import terser from '@rollup/plugin-terser';
 
 const config = {
   input: 'src/index.ts',
-  external: (id) => {
+  external: id => {
     // Keep all pino* as external for smaller bundle
     return id.startsWith('pino');
   },
@@ -38,7 +38,7 @@ const config = {
     // Ignore circular dependency warnings from third-party modules
     if (
       warning.code === 'CIRCULAR_DEPENDENCY' &&
-      warning.ids?.some((id) => id.includes('node_modules'))
+      warning.ids?.some(id => id.includes('node_modules'))
     ) {
       return;
     }
@@ -50,28 +50,28 @@ const config = {
     esModule: true,
     sourcemap: false,
     compact: true,
-    minifyInternalExports: true
+    minifyInternalExports: true,
   },
   plugins: [
     typescript({
-      tsconfig: './tsconfig.json'
+      tsconfig: './tsconfig.json',
     }),
     nodeResolve({
       preferBuiltins: true,
       exportConditions: ['node'],
-      modulesOnly: true
+      modulesOnly: true,
     }),
     terser({
       format: {
-        comments: false
+        comments: false,
       },
       compress: {
         drop_console: false, // Keep console for runtime logging
         drop_debugger: true,
-        pure_funcs: ['console.debug']
-      }
-    })
-  ]
+        pure_funcs: ['console.debug'],
+      },
+    }),
+  ],
 };
 
 export default config;

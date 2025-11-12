@@ -26,19 +26,20 @@ export default [
       '**/lib/**',
       '**/build/**',
       '*.config.{js,mjs,cjs}',
+      'playwright.config.ts',
       'badges/**',
-      'script/**'
-    ]
+      'script/**',
+    ],
   },
 
   // Base configuration for all files
   {
     plugins: {
-      prettier
+      prettier,
     },
     rules: {
-      'prettier/prettier': ['error', { semi: true }]
-    }
+      'prettier/prettier': ['error', { semi: true }],
+    },
   },
 
   // TypeScript files configuration
@@ -50,27 +51,27 @@ export default [
       sourceType: 'module',
       parserOptions: {
         project: ['tsconfig.test.json'],
-        tsconfigRootDir: __dirname
+        tsconfigRootDir: __dirname,
       },
       globals: {
         ...globals.node,
         NodeJS: 'readonly',
         Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly'
-      }
+        SharedArrayBuffer: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': typescriptEslint,
       import: _import,
-      sonarjs
+      sonarjs,
     },
     settings: {
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
-          project: 'tsconfig.test.json'
-        }
-      }
+          project: 'tsconfig.test.json',
+        },
+      },
     },
     rules: {
       // Base ESLint recommended
@@ -100,8 +101,8 @@ export default [
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_',
           destructuredArrayIgnorePattern: '^_',
-          ignoreRestSiblings: true
-        }
+          ignoreRestSiblings: true,
+        },
       ],
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/require-await': 'error',
@@ -120,14 +121,14 @@ export default [
             'internal',
             'parent',
             'sibling',
-            'index'
+            'index',
           ],
           'newlines-between': 'always',
           alphabetize: {
             order: 'asc',
-            caseInsensitive: true
-          }
-        }
+            caseInsensitive: true,
+          },
+        },
       ],
       'sort-imports': [
         'error',
@@ -135,8 +136,8 @@ export default [
           ignoreCase: true,
           ignoreDeclarationSort: true,
           ignoreMemberSort: false,
-          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
-        }
+          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+        },
       ],
 
       // Custom overrides
@@ -144,8 +145,19 @@ export default [
       'no-console': 'off',
       'no-shadow': 'off',
       'space-in-parens': ['error', 'never'],
-      'spaced-comment': ['error', 'always']
-    }
+      'spaced-comment': ['error', 'always'],
+    },
+  },
+
+  // Browser-based files (React app entry points)
+  {
+    files: ['packages/app/src/**/*.{ts,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
   },
 
   // Test files and mock files configuration
@@ -154,18 +166,18 @@ export default [
       '**/__tests__/**/*.{ts,tsx}',
       '**/*.test.{ts,tsx}',
       '**/*.spec.{ts,tsx}',
-      '**/__mocks__/**/*.{ts,tsx}'
+      '**/__mocks__/**/*.{ts,tsx}',
     ],
     languageOptions: {
       globals: {
         ...globals.node,
         ...globals.jest,
         NodeJS: 'readonly',
-        jest: 'readonly'
-      }
+        jest: 'readonly',
+      },
     },
     plugins: {
-      jest
+      jest,
     },
     rules: {
       // Jest recommended rules
@@ -179,7 +191,7 @@ export default [
       'sonarjs/no-duplicate-string': 'off',
       '@typescript-eslint/unbound-method': 'off',
       '@typescript-eslint/require-await': 'off',
-      'sonarjs/publicly-writable-directories': 'off'
-    }
-  }
+      'sonarjs/publicly-writable-directories': 'off',
+    },
+  },
 ];
