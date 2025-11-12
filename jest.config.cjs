@@ -8,8 +8,10 @@ module.exports = {
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: [
     '__mocks__',
+    '/types/',
     '/node_modules/',
     '/dist/',
+    '/dist-types/',
     '/tests/',
   ],
   coverageReporters: ['json-summary', 'text', 'lcov'],

@@ -5,7 +5,8 @@
     "**/node_modules/**",
     "**/dist/**",
     "**/coverage/**",
-    "**/__mocks__/**"
+    "**/__mocks__/**",
+    "**/dist-types/**"
   ],
   "minLines": 5,
   "minTokens": 70,

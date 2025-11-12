@@ -20,6 +20,7 @@ export default [
   // Global ignores
   {
     ignores: [
+      '**/dist-types/**',
       '**/coverage/**',
       '**/dist/**',
       '**/node_modules/**',
