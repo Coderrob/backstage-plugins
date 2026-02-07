@@ -58,7 +58,7 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "cross-env": "^7.0.0",
-    "webpack": "~5.96.0"
+    "webpack": "~5.104.1"
   },
   "browserslist": {
     "production": [
