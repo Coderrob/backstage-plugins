@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@backstage/cli": "^0.34.4",
-    "webpack": "~5.96.0"
+    "webpack": "~5.104.1"
   },
   "files": [
     "dist"
